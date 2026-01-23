@@ -783,3 +783,37 @@ if (document.readyState === 'loading') {
 } else {
   render();
 }
+
+// ============================================
+// KEYBOARD INTERACTIONS
+// ============================================
+document.addEventListener('keydown', (e) => {
+  if (!state.gameStarted) return;
+
+  const key = e.key.toLowerCase();
+
+  // Map A/B/C/D to option indices
+  const keyMap = { 'a': 0, 'b': 1, 'c': 2, 'd': 3 };
+
+  if (keyMap.hasOwnProperty(key)) {
+    const idx = keyMap[key];
+
+    // Only trigger if question not yet answered and not in review
+    if (!state.answered && !state.reviewMode && idx < state.questions[state.currentQ].options.length) {
+      handleAnswer(idx);
+      // Optionally highlight the button visually
+      const btns = document.querySelectorAll('.option-btn');
+      btns.forEach((btn, i) => {
+        btn.classList.remove('option-selected');
+        if (i === idx) btn.classList.add('option-selected');
+      });
+    }
+  }
+
+  // Enter key → next question if answered and not in review
+  if (key === 'enter') {
+    if (state.answered && !state.reviewMode && !state.gameOver) {
+      nextQuestion();
+    }
+  }
+});
