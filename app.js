@@ -1149,7 +1149,7 @@ function shuffleArray(array) {
 
 function startGame() {
   const shuffled = shuffleArray(questionBank);
-  state.questions = shuffled.slice(0, Math.min(250, questionBank.length));
+  state.questions = shuffled.slice(0, Math.min(100, questionBank.length));
   state.gameStarted = true;
   state.timer = 15;
   render();
@@ -1397,7 +1397,7 @@ function renderStartScreen() {
         <div class="stat-icon">🎯</div>
         <div class="stat-content">
           <div class="stat-label">Total Questions</div>
-          <div class="stat-value">${Math.min(250, questionBank.length)}</div>
+          <div class="stat-value">${Math.min(100, questionBank.length)}</div>
         </div>
       </div>
     </div>
