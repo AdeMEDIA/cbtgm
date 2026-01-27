@@ -70,8 +70,13 @@ const courseBanks = {
   questions: questionBankMLS101,
   icon: '🔬',
   color: 'course-mls'
-}
-  // Add more courses here as you create question files
+},
+'gst103': {
+  name: 'Use of Library and Act',
+  questions: questionBankGST103, // From questions_gst103.js
+  icon: '📚',
+  color: 'course-gst'
+},
 };
 
 // ============================================
