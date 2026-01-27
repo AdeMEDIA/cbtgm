@@ -64,7 +64,13 @@ const courseBanks = {
     questions: questionBankPHY101,
     icon: '⚛️',
     color: 'course-phy'
-  }
+  },
+  'mls101': {
+  name: 'Introduction to Medical Lab I',
+  questions: questionBankMLS101,
+  icon: '🔬',
+  color: 'course-mls'
+}
   // Add more courses here as you create question files
 };
 
