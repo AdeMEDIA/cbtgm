@@ -77,6 +77,11 @@ const courseBanks = {
   icon: '📚',
   color: 'course-gst'
 },
+'ent101': {
+  name: 'ENTREPRENUERSHIP',
+  questions: questionBankENT101, // From questions_gst103.js
+  icon: '📚',
+  color: 'course-gst'
 };
 
 // ============================================
