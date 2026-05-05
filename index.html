@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT Quiz Challenge</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Firebase SDK -->
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+      import { getAuth } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js';
+      import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyD2SBvG-RrWUG-vHGbrI1DaKRcVdXHkOCc",
+        authDomain: "cbequiz-f8d39.firebaseapp.com",
+        projectId: "cbequiz-f8d39",
+        storageBucket: "cbequiz-f8d39.firebasestorage.app",
+        messagingSenderId: "131305706632",
+        appId: "1:131305706632:web:fb21fb8886f4d93a843b3d"
+      };
+
+      // Initialize Firebase
+      try {
+        const app = initializeApp(firebaseConfig);
+        window.auth = getAuth(app);
+        window.db = getFirestore(app);
+        console.log('Firebase initialized successfully');
+        
+        // Signal that Firebase is ready
+        window.firebaseReady = true;
+        window.dispatchEvent(new Event('firebaseReady'));
+      } catch (error) {
+        console.error('Firebase initialization error:', error);
+      }
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- Load all question banks -->
+    <script src="questions_gst101.js"></script>
+    <script src="questions_bio101.js"></script>
+    <script src="questions_phy101.js"></script>
+    <script src="questions_mls101.js"></script>
+    <script src="questions_gst103.js"></script>
+    <script src="questions_ent101.js"></script>
+    <script src="questions_mth101.js"></script>
+    <script src="questions_mls102.js"></script>
+    <script src="questions_mls104.js"></script>
+
+    <!-- Then load app logic -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
